@@ -1,0 +1,295 @@
+﻿<Page x:Class="app.CLIENT.Views.Monitoring.MonitoringPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:app.DESCKTOP.Views.Monitoring"
+      mc:Ignorable="d" 
+      Loaded="Page_Loaded"
+      Background="{StaticResource PageBackground}">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Монитор торговых автоматов" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,12"/>
+
+        <Border Grid.Row="1" Background="White" BorderBrush="#E3E3E3" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,0,12">
+            <StackPanel>
+                <!-- Верхняя строка с фильтрами -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+
+                    <!-- Общее состояние -->
+                    <StackPanel Margin="0,0,30,0">
+                        <TextBlock Text="Общее состояние" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                        <StackPanel Orientation="Horizontal">
+                            <ToggleButton x:Name="WorkingStatusButton" 
+                                          Checked="StatusButton_Checked"
+                                          Unchecked="StatusButton_Unchecked"
+                                          Margin="0,0,15,0"
+                                          Style="{StaticResource StatusToggleButton}">
+                                <Ellipse Fill="#1FCB7A" Width="25" Height="25"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="NotWorkingStatusButton" 
+                                          Checked="StatusButton_Checked"
+                                          Unchecked="StatusButton_Unchecked"
+                                          Margin="0,0,15,0"
+                                          Style="{StaticResource StatusToggleButton}">
+                                <Ellipse Fill="#E74C3C" Width="25" Height="25"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="MaintenanceStatusButton" 
+                                          Checked="StatusButton_Checked"
+                                          Unchecked="StatusButton_Unchecked"
+                                          Style="{StaticResource StatusToggleButton}">
+                                <Ellipse Fill="#F1C40F" Width="25" Height="25"/>
+                            </ToggleButton>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Подключение -->
+                    <StackPanel Margin="0,0,30,0">
+                        <TextBlock Text="Подключение" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                        <StackPanel Orientation="Horizontal">
+                            <ToggleButton x:Name="MdiButton" 
+                                          Checked="ConnectionButton_Checked"
+                                          Unchecked="ConnectionButton_Unchecked"
+                                          Margin="5"
+                                          Style="{StaticResource IconToggleButton}">
+                                <Image Source="/Views/Assets/Icons/ControlMode.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="ExeButton" 
+                                          Checked="ConnectionButton_Checked"
+                                          Unchecked="ConnectionButton_Unchecked"
+                                          Style="{StaticResource IconToggleButton}">
+                                <Image Source="/Views/Assets/Icons/Settings/MDB.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="PhButton" 
+                                          Checked="ConnectionButton_Checked"
+                                          Unchecked="ConnectionButton_Unchecked"
+                                          Style="{StaticResource IconToggleButton}">
+                                <Image Source="/Views/Assets/Icons/Settings/ExePH.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="StButton" 
+                                          Checked="ConnectionButton_Checked"
+                                          Unchecked="ConnectionButton_Unchecked"
+                                          Style="{StaticResource IconToggleButton}">
+                                <Image Source="/Views/Assets/Icons/Settings/ExeST.png"/>
+                            </ToggleButton>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Дополнительные статусы -->
+                    <StackPanel Margin="0,0,30,0">
+                        <TextBlock Text="Дополнительные статусы" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                        <StackPanel Orientation="Horizontal">
+                            <ToggleButton x:Name="ErrorButton" 
+                                          Checked="AdditionalButton_Checked"
+                                          Unchecked="AdditionalButton_Unchecked"
+                                          Margin="5"
+                                          Style="{StaticResource IconToggleButton}">
+                                <Image Source="/Views/Assets/Icons/Statuses/NoConnection.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="QuestionButton" 
+                                          Checked="AdditionalButton_Checked"
+                                          Unchecked="AdditionalButton_Unchecked"
+                                          Style="{StaticResource IconToggleButton}">
+                                <Image Source="/Views/Assets/Icons/Statuses/HardwareProblems.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Circle1Button" 
+                                          Checked="AdditionalButton_Checked"
+                                          Unchecked="AdditionalButton_Unchecked"
+                                          Style="{StaticResource IconToggleButton}">
+                                <Image Source="/Views/Assets/Icons/Statuses/NoSales.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Circle2Button" 
+                                          Checked="AdditionalButton_Checked"
+                                          Unchecked="AdditionalButton_Unchecked"
+                                          Style="{StaticResource IconToggleButton}">
+                                <Image Source="/Views/Assets/Icons/Statuses/NoEncashment.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Circle3Button" 
+                                          Checked="AdditionalButton_Checked"
+                                          Unchecked="AdditionalButton_Unchecked"
+                                          Style="{StaticResource IconToggleButton}">
+                                <Image Source="/Views/Assets/Icons/Statuses/NoService.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Circle4Button" 
+                                          Checked="AdditionalButton_Checked"
+                                          Unchecked="AdditionalButton_Unchecked"
+                                          Style="{StaticResource IconToggleButton}">
+                                <Image Source="/Views/Assets/Icons/Statuses/NoFillup.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Circle5Button" 
+                                          Checked="AdditionalButton_Checked"
+                                          Unchecked="AdditionalButton_Unchecked"
+                                          Style="{StaticResource IconToggleButton}">
+                                <Image Source="/Views/Assets/Icons/Statuses/FewChange.png"/>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Circle6Button" 
+                                          Checked="AdditionalButton_Checked"
+                                          Unchecked="AdditionalButton_Unchecked"
+                                          Style="{StaticResource IconToggleButton}">
+                                <Image Source="/Views/Assets/Icons/Statuses/FewGoods.png"/>
+                            </ToggleButton>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!-- Сортировка -->
+                    <StackPanel>
+                        <TextBlock Text="Сортировка" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                        <ComboBox x:Name="SortComboBox" 
+                                  Width="150" 
+                                  Height="28"
+                                  SelectionChanged="SortComboBox_SelectionChanged">
+                            <ComboBoxItem Content="По состоянию ТА" IsSelected="True"/>
+                            <ComboBoxItem Content="По времени"/>
+                        </ComboBox>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <!-- Нижняя строка с кнопками -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button Content="Применить" 
+                            Height="32" 
+                            Width="100"
+                            Margin="0,0,12,0"
+                            Click="ApplyButton_Click"/>
+                    <Button Content="Очистить" 
+                            Height="32" 
+                            Width="100"
+                            Click="ClearButton_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+
+        <!-- Таблица данных -->
+        <Border Grid.Row="2" 
+                Background="White" 
+                BorderBrush="#E3E3E3" 
+                BorderThickness="1" 
+                CornerRadius="6" 
+                Padding="6">
+            <Grid>
+                <DataGrid x:Name="MonitoringDataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Rows}"
+                          CanUserSortColumns="True"
+                          IsReadOnly="True" 
+                          SelectionChanged="MonitoringDataGrid_SelectionChanged"
+                          BorderThickness="0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="№" 
+                                           Binding="{Binding RowNumber}" 
+                                           Width="40"
+                                           CanUserSort="False"/>
+                        <DataGridTextColumn Header="ТA" 
+                                           Binding="{Binding TA}" 
+                                           Width="140"/>
+
+                        <DataGridTemplateColumn Header="Связь" Width="120">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <Ellipse Width="8" Height="8" Margin="0,0,6,0">
+                                            <Ellipse.Style>
+                                                <Style TargetType="Ellipse">
+                                                    <Setter Property="Fill" Value="#1FCB7A"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Connection}" Value="Offline">
+                                                            <Setter Property="Fill" Value="#E74C3C"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Connection}" Value="Weak">
+                                                            <Setter Property="Fill" Value="#F1C40F"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Ellipse.Style>
+                                        </Ellipse>
+                                        <TextBlock Text="{Binding Connection}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Загрузка" Width="180">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Load}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Денежные средства" Width="150">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Cash}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="События" Width="160">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Events}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Оборудование" Width="160">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Equipment}" Foreground="Green" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Информация" Width="140">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Info}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Доп." Width="140">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Additional}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Время" Binding="{Binding Time}" Width="120"/>
+                        <DataGridTextColumn Header="Баланс" Binding="{Binding AccountBalance}" Width="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <TextBlock x:Name="NoDataTextBlock" 
+                           Text="Нет данных для отображения" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           Visibility="Collapsed" 
+                           FontSize="16" 
+                           Foreground="Gray"/>
+            </Grid>
+        </Border>
+
+        <!-- Статистика внизу -->
+        <StackPanel Grid.Row="3" 
+                    Orientation="Horizontal" 
+                    Margin="0,12,0,0">
+            <TextBlock x:Name="TotalCountTextBlock" 
+                       Text="Итого автоматов: 0" 
+                       FontWeight="Bold" 
+                       Margin="0,0,10,0"/>
+            <TextBlock x:Name="TotalCashTextBlock" 
+                       Text="Денег в автоматах: 0 ₽" 
+                       FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Page>

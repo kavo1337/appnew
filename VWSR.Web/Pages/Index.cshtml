@@ -1,0 +1,15 @@
+@page
+@using Microsoft.Extensions.Localization
+@model IndexModel
+@inject IStringLocalizer<SharedResource> L
+@{
+    ViewData["Title"] = "VendingService";
+}
+
+<div class="text-center">
+    <h1 class="display-6">@L["AppTitle"]</h1>
+    <p class="text-muted">@L["IndexDesc"]</p>
+    <p>
+        @L["String2"]
+    </p>
+</div>

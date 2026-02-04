@@ -1,0 +1,107 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Assets\Icons\admin.png" />
+    <None Remove="Views\Assets\Icons\angle-down.png" />
+    <None Remove="Views\Assets\Icons\angle-right.png" />
+    <None Remove="Views\Assets\Icons\bars.png" />
+    <None Remove="Views\Assets\Icons\bell.png" />
+    <None Remove="Views\Assets\Icons\clock-o.png" />
+    <None Remove="Views\Assets\Icons\ControlMode.png" />
+    <None Remove="Views\Assets\Icons\Details2.png" />
+    <None Remove="Views\Assets\Icons\dollar.png" />
+    <None Remove="Views\Assets\Icons\exclamation-circle.png" />
+    <None Remove="Views\Assets\Icons\exclamation-triangle.png" />
+    <None Remove="Views\Assets\Icons\home.png" />
+    <None Remove="Views\Assets\Icons\info-circle.png" />
+    <None Remove="Views\Assets\Icons\inventory.png" />
+    <None Remove="Views\Assets\Icons\monitor.png" />
+    <None Remove="Views\Assets\Icons\pencil.png" />
+    <None Remove="Views\Assets\Icons\plug.png" />
+    <None Remove="Views\Assets\Icons\reports.png" />
+    <None Remove="Views\Assets\Icons\Settings\Audit2.png" />
+    <None Remove="Views\Assets\Icons\Settings\ControlMode.png" />
+    <None Remove="Views\Assets\Icons\Settings\ExePH.png" />
+    <None Remove="Views\Assets\Icons\Settings\ExeST.png" />
+    <None Remove="Views\Assets\Icons\Settings\MDB.png" />
+    <None Remove="Views\Assets\Icons\sign-out.png" />
+    <None Remove="Views\Assets\Icons\signal.png" />
+    <None Remove="Views\Assets\Icons\Signal5.png" />
+    <None Remove="Views\Assets\Icons\Statuses\DifferentsSettings.png" />
+    <None Remove="Views\Assets\Icons\Statuses\EndedTimeWork.png" />
+    <None Remove="Views\Assets\Icons\Statuses\FarmOnline.png" />
+    <None Remove="Views\Assets\Icons\Statuses\FewChange.png" />
+    <None Remove="Views\Assets\Icons\Statuses\FewGoods.png" />
+    <None Remove="Views\Assets\Icons\Statuses\HardwareProblems.png" />
+    <None Remove="Views\Assets\Icons\Statuses\NoConnection.png" />
+    <None Remove="Views\Assets\Icons\Statuses\NoEncashment.png" />
+    <None Remove="Views\Assets\Icons\Statuses\NoFillup.png" />
+    <None Remove="Views\Assets\Icons\Statuses\NoSales.png" />
+    <None Remove="Views\Assets\Icons\Statuses\NoService.png" />
+    <None Remove="Views\Assets\Icons\thermometer-full.png" />
+    <None Remove="Views\Assets\Icons\trash.png" />
+    <None Remove="Views\Assets\Icons\unlink.png" />
+    <None Remove="Views\Assets\Icons\unlock.png" />
+    <None Remove="Views\Assets\Icons\usb.png" />
+    <None Remove="Views\Assets\Icons\user.png" />
+    <None Remove="Views\Assets\Icons\wifi.png" />
+    <None Remove="Views\Assets\Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Assets\Icons\admin.png" />
+    <Resource Include="Views\Assets\Icons\angle-down.png" />
+    <Resource Include="Views\Assets\Icons\angle-right.png" />
+    <Resource Include="Views\Assets\Icons\bars.png" />
+    <Resource Include="Views\Assets\Icons\bell.png" />
+    <Resource Include="Views\Assets\Icons\clock-o.png" />
+    <Resource Include="Views\Assets\Icons\ControlMode.png" />
+    <Resource Include="Views\Assets\Icons\Details2.png" />
+    <Resource Include="Views\Assets\Icons\dollar.png" />
+    <Resource Include="Views\Assets\Icons\exclamation-circle.png" />
+    <Resource Include="Views\Assets\Icons\exclamation-triangle.png" />
+    <Resource Include="Views\Assets\Icons\home.png" />
+    <Resource Include="Views\Assets\Icons\info-circle.png" />
+    <Resource Include="Views\Assets\Icons\inventory.png" />
+    <Resource Include="Views\Assets\Icons\monitor.png" />
+    <Resource Include="Views\Assets\Icons\pencil.png" />
+    <Resource Include="Views\Assets\Icons\plug.png" />
+    <Resource Include="Views\Assets\Icons\reports.png" />
+    <Resource Include="Views\Assets\Icons\Settings\Audit2.png" />
+    <Resource Include="Views\Assets\Icons\Settings\ControlMode.png" />
+    <Resource Include="Views\Assets\Icons\Settings\ExePH.png" />
+    <Resource Include="Views\Assets\Icons\Settings\ExeST.png" />
+    <Resource Include="Views\Assets\Icons\Settings\MDB.png" />
+    <Resource Include="Views\Assets\Icons\sign-out.png" />
+    <Resource Include="Views\Assets\Icons\signal.png" />
+    <Resource Include="Views\Assets\Icons\Signal5.png" />
+    <Resource Include="Views\Assets\Icons\Statuses\DifferentsSettings.png" />
+    <Resource Include="Views\Assets\Icons\Statuses\EndedTimeWork.png" />
+    <Resource Include="Views\Assets\Icons\Statuses\FarmOnline.png" />
+    <Resource Include="Views\Assets\Icons\Statuses\FewChange.png" />
+    <Resource Include="Views\Assets\Icons\Statuses\FewGoods.png" />
+    <Resource Include="Views\Assets\Icons\Statuses\HardwareProblems.png" />
+    <Resource Include="Views\Assets\Icons\Statuses\NoConnection.png" />
+    <Resource Include="Views\Assets\Icons\Statuses\NoEncashment.png" />
+    <Resource Include="Views\Assets\Icons\Statuses\NoFillup.png" />
+    <Resource Include="Views\Assets\Icons\Statuses\NoSales.png" />
+    <Resource Include="Views\Assets\Icons\Statuses\NoService.png" />
+    <Resource Include="Views\Assets\Icons\thermometer-full.png" />
+    <Resource Include="Views\Assets\Icons\trash.png" />
+    <Resource Include="Views\Assets\Icons\unlink.png" />
+    <Resource Include="Views\Assets\Icons\unlock.png" />
+    <Resource Include="Views\Assets\Icons\usb.png" />
+    <Resource Include="Views\Assets\Icons\user.png" />
+    <Resource Include="Views\Assets\Icons\wifi.png" />
+    <Resource Include="Views\Assets\Logo.png" />
+  </ItemGroup>
+
+</Project>
