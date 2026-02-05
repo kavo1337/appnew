@@ -237,7 +237,7 @@ namespace app.DESCKTOP.Views.Shell {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/app.DESCKTOP;V1.0.0.0;component/views/shell/shellwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/app.DESCKTOP;component/views/shell/shellwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Shell\ShellWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

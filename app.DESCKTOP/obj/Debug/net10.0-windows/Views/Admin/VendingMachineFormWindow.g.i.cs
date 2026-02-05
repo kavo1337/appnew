@@ -244,7 +244,7 @@ namespace VWSR.Desktop {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/app.DESCKTOP;V1.0.0.0;component/views/admin/vendingmachineformwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/app.DESCKTOP;component/views/admin/vendingmachineformwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Admin\VendingMachineFormWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

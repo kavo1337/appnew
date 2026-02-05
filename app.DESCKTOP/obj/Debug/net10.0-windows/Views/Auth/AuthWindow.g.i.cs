@@ -85,7 +85,7 @@ namespace app.DESCKTOP.Views.Auth {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/app.DESCKTOP;V1.0.0.0;component/views/auth/authwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/app.DESCKTOP;component/views/auth/authwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Auth\AuthWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

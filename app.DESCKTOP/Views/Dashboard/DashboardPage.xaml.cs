@@ -101,6 +101,21 @@ namespace app.DESCKTOP.Views.Dashboard
 				}
 			}
 		}
+		private static void ShowTile(UIElement tile)
+		{
+			tile.Visibility = Visibility.Visible;
+		}
+
+		private void ShowAllTiles_Click(object sender, RoutedEventArgs e)
+		{
+			// Быстро показываем все плитки обратно.
+			ShowTile(EfficiencyTileBorder);
+			ShowTile(NetworkTileBorder);
+			ShowTile(SummaryTileBorder);
+			ShowTile(SalesTileBorder);
+			ShowTile(NewsTileBorder);
+		}
+
 		private void SeedSales()
 		{
 			_salesPoints.Clear();

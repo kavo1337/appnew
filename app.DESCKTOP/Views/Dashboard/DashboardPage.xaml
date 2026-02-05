@@ -7,6 +7,17 @@
       mc:Ignorable="d" 
       Title="DashboardPage"
       Background="{StaticResource PageBackground}">
+    <Page.Resources>
+        <!-- Небольшая кнопка-ссылка как в макете (аккуратно и без акцента). -->
+        <Style x:Key="TileLinkButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="#6B7280"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+    </Page.Resources>
     <Grid Margin="16">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,7 +27,10 @@
 
         <StackPanel Grid.Row="0" Margin="0,0,0,12">
             <TextBlock Text="Личный кабинет. Главная" FontSize="18" FontWeight="SemiBold"/>
-            <TextBlock Text="Личный кабинет" FontSize="12" Foreground="Gray"/>
+            <DockPanel Margin="0,4,0,0">
+                <TextBlock Text="Личный кабинет" FontSize="12" Foreground="Gray"/>
+                <Button Content="Показать все плитки" Style="{StaticResource TileLinkButtonStyle}" DockPanel.Dock="Right" Click="ShowAllTiles_Click"/>
+            </DockPanel>
         </StackPanel>
 
         <Grid Grid.Row="1" Margin="0,0,0,12">
@@ -26,11 +40,11 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Background="White" BorderBrush="#E3E3E3" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,12,0" DataContext="{Binding EfficiencyTile}">
+            <Border x:Name="EfficiencyTileBorder" Grid.Column="0" Background="White" BorderBrush="#E3E3E3" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,12,0" DataContext="{Binding EfficiencyTile}">
                 <StackPanel>
                     <DockPanel>
                         <TextBlock Text="Эффективность сети" FontWeight="SemiBold"/>
-                        <Button Content="Скрыть" HorizontalAlignment="Right" Width="45" DockPanel.Dock="Right" Tag="EfficiencyTileBorder" Click="HideTile_Click" Margin="10,0,0,0"/>
+                        <Button Content="Скрыть" Style="{StaticResource TileLinkButtonStyle}" DockPanel.Dock="Right" Tag="EfficiencyTileBorder" Click="HideTile_Click"/>
                     </DockPanel>
                     <ProgressBar Height="18" Maximum="100" Value="{Binding EfficiencyPercent}" Margin="0,8,0,0"/>
                     <TextBlock Text="{Binding EfficiencyPercent, StringFormat={}{0}%}" FontSize="16" FontWeight="SemiBold" Margin="0,6,0,0"/>
@@ -38,11 +52,11 @@
                 </StackPanel>
             </Border>
 
-            <Border Grid.Column="1" Background="White" BorderBrush="#E3E3E3" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,12,0" DataContext="{Binding NetworkTile}">
+            <Border x:Name="NetworkTileBorder" Grid.Column="1" Background="White" BorderBrush="#E3E3E3" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,12,0" DataContext="{Binding NetworkTile}">
                 <StackPanel>
                     <DockPanel>
-                        <TextBlock Text="Эффективность сети" FontWeight="SemiBold"/>
-                        <Button Content="Скрыть" HorizontalAlignment="Right" Width="45" DockPanel.Dock="Right" Tag="EfficiencyTileBorder" Click="HideTile_Click" Margin="10,0,0,0"/>
+                        <TextBlock Text="Состояние сети" FontWeight="SemiBold"/>
+                        <Button Content="Скрыть" Style="{StaticResource TileLinkButtonStyle}" DockPanel.Dock="Right" Tag="NetworkTileBorder" Click="HideTile_Click"/>
                     </DockPanel>
                     <WrapPanel Margin="0,8,0,0">
                         <Button Tag="Working" Click="NetworkStatus_Click" Padding="6,2" Margin="0,0,6,6">
@@ -73,20 +87,16 @@
                 </StackPanel>
             </Border>
 
-            <Border Grid.Column="2" Background="White" BorderBrush="#E3E3E3" BorderThickness="1" CornerRadius="6" Padding="12" DataContext="{Binding SummaryTile}">
+            <Border x:Name="SummaryTileBorder" Grid.Column="2" Background="White" BorderBrush="#E3E3E3" BorderThickness="1" CornerRadius="6" Padding="12" DataContext="{Binding SummaryTile}">
                 <StackPanel>
                     <DockPanel>
-                        <TextBlock Text="Эффективность сети" FontWeight="SemiBold"/>
-                        <Button Content="Скрыть" HorizontalAlignment="Right" Width="45" DockPanel.Dock="Right" Tag="EfficiencyTileBorder" Click="HideTile_Click" Margin="10,0,0,0"/>
+                        <TextBlock Text="Сводка" FontWeight="SemiBold"/>
+                        <Button Content="Скрыть" Style="{StaticResource TileLinkButtonStyle}" DockPanel.Dock="Right" Tag="SummaryTileBorder" Click="HideTile_Click"/>
                     </DockPanel>
                     <StackPanel Margin="0,8,0,0">
-                        <TextBlock Text="{Binding CashTotal, StringFormat=Денег в ТА: {0:N0}}"/>
-                        <TextBlock Text="{Binding СhangeTotal, StringFormat=Сдача ТА: {0:N0}}"/>
-                        <TextBlock Text="{Binding SalesToday, StringFormat=Выручка сегодня: {0}}"/>
-                        <TextBlock Text="{Binding SalesLastDay, StringFormat=Выручка вчера: {0}}"/>
-                        <TextBlock Text="{Binding CollectedToday, StringFormat=Инкассировано сегодня: {0}}"/>
-                        <TextBlock Text="{Binding CollectedLastDay, StringFormat=Инкассировано вчера: {0}}"/>
-                        <TextBlock Text="{Binding ServicedToday, StringFormat=Обслуженно ТА: {0}}"/>
+                        <TextBlock Text="{Binding SalesTotal, StringFormat=Продажи: {0:N0}}"/>
+                        <TextBlock Text="{Binding CashTotal, StringFormat=Инкассация: {0:N0}}"/>
+                        <TextBlock Text="{Binding MaintenanceTotal, StringFormat=Обслуживание: {0}}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -98,11 +108,11 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Background="White" BorderBrush="#E3E3E3" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,12,0" DataContext="{Binding SalesTile}">
+            <Border x:Name="SalesTileBorder" Grid.Column="0" Background="White" BorderBrush="#E3E3E3" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,12,0" DataContext="{Binding SalesTile}">
                 <StackPanel>
                     <DockPanel>
-                        <TextBlock Text="Эффективность сети" FontWeight="SemiBold"/>
-                        <Button Content="Скрыть" HorizontalAlignment="Right" Width="45" DockPanel.Dock="Right" Tag="EfficiencyTileBorder" Click="HideTile_Click" Margin="10,0,0,0"/>
+                        <TextBlock Text="Динамика продаж за последние 10 дней" FontWeight="SemiBold"/>
+                        <Button Content="Скрыть" Style="{StaticResource TileLinkButtonStyle}" DockPanel.Dock="Right" Tag="SalesTileBorder" Click="HideTile_Click"/>
                     </DockPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,8,0,8">
                         <Button Content="По сумме" Click="SalesFilterSum_Click" Margin="0,0,6,0"/>
@@ -127,11 +137,11 @@
                 </StackPanel>
             </Border>
 
-            <Border Grid.Column="1" Background="White" BorderBrush="#E3E3E3" BorderThickness="1" CornerRadius="6" Padding="12" DataContext="{Binding NewsTile}">
+            <Border x:Name="NewsTileBorder" Grid.Column="1" Background="White" BorderBrush="#E3E3E3" BorderThickness="1" CornerRadius="6" Padding="12" DataContext="{Binding NewsTile}">
                 <StackPanel>
                     <DockPanel>
-                        <TextBlock Text="Эффективность сети" FontWeight="SemiBold"/>
-                        <Button Content="Скрыть" HorizontalAlignment="Right" Width="45" DockPanel.Dock="Right" Tag="EfficiencyTileBorder" Click="HideTile_Click" Margin="10,0,0,0"/>
+                        <TextBlock Text="Новости" FontWeight="SemiBold"/>
+                        <Button Content="Скрыть" Style="{StaticResource TileLinkButtonStyle}" DockPanel.Dock="Right" Tag="NewsTileBorder" Click="HideTile_Click"/>
                     </DockPanel>
                     <ItemsControl ItemsSource="{Binding NewsItems}" Margin="0,8,0,0">
                         <ItemsControl.ItemTemplate>
